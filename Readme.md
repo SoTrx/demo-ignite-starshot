@@ -1,14 +1,17 @@
 
 # Demo ignite 2022
 
-## Prérequis
+## Prerequisites
+
+The following package should be installed on the system
+
     - .NET SDK >= 7.0 
     - Azure CLI >= 2.40
     - Azure developer CLI >= 0.2.0
     - Bicep >=0.10.61
     - Github CLI > 2.0 
 
-### Installer avec Winget
+### Installing with Winget
 
 ```sh
     # Azure developer CLI has yo be installed using the github repo https://github.com/Azure/azure-dev
@@ -17,7 +20,7 @@
     az bicep upgrade
 ```
 
-### Installer avec Chocolatey
+### Installing with Chocolatey
 
 ```sh
     # Azure developer CLI has yo be installed using the github repo https://github.com/Azure/azure-dev
@@ -25,6 +28,19 @@
     choco install gh azure-cli bicep
     # Azure-cli stores bicep executable in its own PATH
     az bicep upgrade
+```
+
+## Repo structure
+
+```sh
+.
+├── azure.yaml       # Azure Dev CLI deployment file
+├── infra            # IaC (provider bicep)
+│   ├── app             # Applications  
+│   ├── core            # Infratructure
+│   └── main.bicep      # infra entrypoint
+└── src
+    └── api             # Sample API (.Net 7) repo
 ```
 ## Development
 
