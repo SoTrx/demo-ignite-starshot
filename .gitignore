@@ -1,0 +1,14 @@
+
+.azure
+.vscode
+
+# Services artifacts
+src/api/bin
+src/api/obj
+
+# Dev env
+src/api/appsettings.Dev*
+
+# User 
+infra-old
+Makefile

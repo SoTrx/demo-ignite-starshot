@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: demo-ignite-2022-minapi
+infra:
+    provider: "bicep"
+    path: "./infra"
+    module: ""
+services:
+  api:
+    project: ./src/api
+    language: dotnet
+    module: ./app/api
+    host: containerapp
