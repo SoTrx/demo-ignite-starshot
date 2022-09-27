@@ -46,6 +46,22 @@ module monitoring './core/monitor/monitoring.bicep' = {
   }
 }
 
+// APIM to connect to the Power app client
+module apim 'core/security/api-management.bicep' = {
+  name: 'apim'
+  params: {
+    environmentName: environmentName
+    location: location
+    sku: 'Developer'
+    capacity: 1
+  }
+}
+// Azure Load testing
+resource loadTesting 'Microsoft.LoadTestService/loadTests@2022-04-15-preview' = {
+  name: 'load-testing'
+  location: location
+}
+
 output API_URI string = api.outputs.API_URI
 output APPLICATIONINSIGHTS_CONNECTION_STRING string = monitoring.outputs.applicationInsightsConnectionString
 output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerApps.outputs.containerRegistryEndpoint
